@@ -7,10 +7,18 @@ import { DecreaseProduct, IncreaseProduct, RemoveProduct } from '../actions/cart
 import { stylesCartScreen } from './controller/style';
 
 
-function CartScreen({ navigation, getTotalCost }) {
+function CartScreen({ navigation }) {
     
     const product = useSelector(state => state.cart);
     const dispatch = useDispatch();
+
+    const getTotalCost = () => {
+        let totalCost = 0;
+        product.forEach(element => {
+            totalCost += element.quantity * element.cost;
+        });
+        return totalCost;
+    }
 
     return (
         <View style={stylesCartScreen.container}>

@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { useSelector } from 'react-redux';
 import { stylesHomeScreen } from './controller/style';
 import IconCart from './IconCart';
 import ProductScreen from './ProductScreen';
 
-function HomeScreen({ navigation, product, cart }) {
+function HomeScreen({ navigation }) {
+
+    const product = useSelector(state => state.product);
+    const cart = useSelector(state => state.cart);
+
     const [ modalVisible, setModalVisible ] = useState(false);
     const [ nameProduct, setNameProduct ] = useState('1')
     const [ infoProduct, setInfoProduct ] = useState({});

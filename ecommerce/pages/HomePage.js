@@ -72,7 +72,7 @@ function HomePage({ navigation }) {
 
 
     return (
-        <HomeScreen navigation={navigation} product={product} cart={cart}/>
+        <HomeScreen navigation={navigation}/>
     );
 }
 
