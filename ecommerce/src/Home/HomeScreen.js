@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { useSelector } from 'react-redux';
-import { stylesHomeScreen } from './controller/style';
-import IconCart from './IconCart';
-import ProductScreen from './ProductScreen';
+import style from './controller/style';
+import ProductScreen from '../Product/ProductScreen';
+import IconCart from '../IconCart/index'
 
 function HomeScreen({ navigation }) {
 
@@ -36,15 +36,15 @@ function HomeScreen({ navigation }) {
         <View style={{flex: 1}}>
             {
                 product.length == 0 ? 
-                <View style={stylesHomeScreen.spinner}>
+                <View style={style.spinner}>
                     <ActivityIndicator size='large' color="#0000ff"/>
                 </View>
                 :
-                <View style={stylesHomeScreen.container}>
+                <View style={style.container}>
                     <ProductScreen visible={modalVisible} infoProduct={infoProduct} setVisible={setVisible}/>
-                    <View style={stylesHomeScreen.header}>
-                        <Text style={stylesHomeScreen.titleHomePage}>Home</Text>
-                        <View style={stylesHomeScreen.iconCart}>
+                    <View style={style.header}>
+                        <Text style={style.titleHomePage}>Home</Text>
+                        <View style={style.iconCart}>
                             <TouchableOpacity
                                 onPress={() => navigation.navigate('Cart')}
                             >
@@ -52,47 +52,47 @@ function HomeScreen({ navigation }) {
                             </TouchableOpacity>
                         </View>
                     </View>
-                    <View style={stylesHomeScreen.productMain}>
-                        <View style={stylesHomeScreen.navbar}>
+                    <View style={style.productMain}>
+                        <View style={style.navbar}>
                             <TouchableOpacity 
-                                style={nameProduct == '1' ? stylesHomeScreen.productButtonActive : stylesHomeScreen.productButton}
+                                style={nameProduct == '1' ? style.productButtonActive : style.productButton}
                                 onPress={() => {setNameProduct('1')}}
                             >
-                                    <Text style={stylesHomeScreen.titleProduct}>Coats</Text>
+                                    <Text style={style.titleProduct}>Coats</Text>
                                 </TouchableOpacity>
 
                             <TouchableOpacity 
-                                style={nameProduct == '2' ? stylesHomeScreen.productButtonActive : stylesHomeScreen.productButton}
+                                style={nameProduct == '2' ? style.productButtonActive : style.productButton}
                                 onPress={() => {setNameProduct('2')}}
                             >
-                                <Text style={stylesHomeScreen.titleProduct}>Dresses</Text>
+                                <Text style={style.titleProduct}>Dresses</Text>
                             </TouchableOpacity>
 
                             <TouchableOpacity 
-                                style={nameProduct == '3' ? stylesHomeScreen.productButtonActive : stylesHomeScreen.productButton}
+                                style={nameProduct == '3' ? style.productButtonActive : style.productButton}
                                 onPress={() => {setNameProduct('3')}}
                             >
-                                <Text style={stylesHomeScreen.titleProduct}>Jersey</Text>
+                                <Text style={style.titleProduct}>Jersey</Text>
                             </TouchableOpacity>
 
                             <TouchableOpacity 
-                                style={nameProduct == '4' ? stylesHomeScreen.productButtonActive : stylesHomeScreen.productButton}
+                                style={nameProduct == '4' ? style.productButtonActive : style.productButton}
                                 onPress={() => {setNameProduct('4')}}
                             >
-                                <Text style={stylesHomeScreen.titleProduct}>Pants</Text>
+                                <Text style={style.titleProduct}>Pants</Text>
                             </TouchableOpacity>
                         </View>
 
-                        <View style={stylesHomeScreen.productMainBox}>
+                        <View style={style.productMainBox}>
                             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                             {
                                 product[nameProduct-1].products.map((product,index) => {
                                     return(
                                         <View 
-                                            style={stylesHomeScreen.productMainList}
+                                            style={style.productMainList}
                                             key={index}
                                         >
-                                            <View style={stylesHomeScreen.productMain_ImageBox}>
+                                            <View style={style.productMain_ImageBox}>
                                                 <TouchableOpacity
                                                     onPress={() => {
                                                         setInfoProduct(product);
@@ -101,13 +101,13 @@ function HomeScreen({ navigation }) {
                                                 >
                                                     <Image 
                                                         source={{uri: product.url}}
-                                                        style={stylesHomeScreen.productMain_ImageProduct}
+                                                        style={style.productMain_ImageProduct}
                                                     />
                                                 </TouchableOpacity>
                                             </View>
-                                            <View style={stylesHomeScreen.productMain_Content}>
-                                                <Text style={stylesHomeScreen.productMain_NameProduct}>{product.name}</Text>
-                                                <Text style={stylesHomeScreen.productMain_CostProduct}>{product.cost} $</Text>
+                                            <View style={style.productMain_Content}>
+                                                <Text style={style.productMain_NameProduct}>{product.name}</Text>
+                                                <Text style={style.productMain_CostProduct}>{product.cost} $</Text>
                                             </View>
                                         </View>
                                     )
@@ -117,9 +117,9 @@ function HomeScreen({ navigation }) {
                         </View>
                     </View>
                     
-                    <View style={stylesHomeScreen.productMore}>
-                        <Text style={stylesHomeScreen.productMore_title}>Recommend for You</Text>
-                        <View style={stylesHomeScreen.productMoreBox}>
+                    <View style={style.productMore}>
+                        <Text style={style.productMore_title}>Recommend for You</Text>
+                        <View style={style.productMoreBox}>
                             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                             {
                                 product.length == 0 ? 
@@ -130,7 +130,7 @@ function HomeScreen({ navigation }) {
                                 product[product.length-1].products.map((product, index) => {
                                     return (
                                         <View 
-                                            style={stylesHomeScreen.productMoreList}
+                                            style={style.productMoreList}
                                             key={index}
                                         >
                                                 <TouchableOpacity
@@ -142,7 +142,7 @@ function HomeScreen({ navigation }) {
                                                 >
                                                     <Image 
                                                         source={{uri: product.url}}
-                                                        style={stylesHomeScreen.productMore_ImageProduct}
+                                                        style={style.productMore_ImageProduct}
                                                     />
                                                 </TouchableOpacity>
                                         </View>

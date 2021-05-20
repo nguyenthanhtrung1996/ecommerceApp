@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Alert, ImageBackground, Modal, Text, TouchableOpacity, View } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useDispatch } from 'react-redux';
-import { AddProduct } from '../actions/cart';
-import { stylesProductScreen } from './controller/style';
+import { AddProduct } from '../../actions/cart';
+import style from './controller/style';
 
 function ProductScreen({visible, infoProduct, setVisible}) {
     const dispatch = useDispatch();
@@ -16,12 +16,12 @@ function ProductScreen({visible, infoProduct, setVisible}) {
                 transparent={true}
                 visible={visible}
             >
-                <View style={stylesProductScreen.modalView}>
+                <View style={style.modalView}>
                     <ImageBackground  
                         source={{uri: infoProduct.url}}
-                        style={stylesProductScreen.ImageBackground}
+                        style={style.ImageBackground}
                     >
-                        <View style={stylesProductScreen.container}>
+                        <View style={style.container}>
                             <Icon 
                                 name='chevron-back-sharp' 
                                 size={32} 
@@ -30,59 +30,55 @@ function ProductScreen({visible, infoProduct, setVisible}) {
                             />
                             
                                 <View 
-                                    style={stylesProductScreen.infoProductBox}
-                                    onStartShouldSetResponder={() => {
-                                        console.log('clicked');
-                                        _start();
-                                    }}
+                                    style={style.infoProductBox}
                                 >
                                     <View>
-                                        <Text style={stylesProductScreen.infoProduct_Name}>{infoProduct.name}</Text>
-                                        <Text style={stylesProductScreen.infoProduct_Cost}>$ {infoProduct.cost}</Text>
-                                        <Text style={stylesProductScreen.infoProduct_TextSize}>Your Size</Text>
-                                        <View style={stylesProductScreen.infoProduct_ButtonSizeBox}>
+                                        <Text style={style.infoProduct_Name}>{infoProduct.name}</Text>
+                                        <Text style={style.infoProduct_Cost}>$ {infoProduct.cost}</Text>
+                                        <Text style={style.infoProduct_TextSize}>Your Size</Text>
+                                        <View style={style.infoProduct_ButtonSizeBox}>
                                             <TouchableOpacity
                                             onPress={() => setButtonActive('S')}
                                             >
-                                                <View style={buttonActive == 'S' ? stylesProductScreen.buttonActiveSize : stylesProductScreen.buttonSize}>
-                                                        <Text style={stylesProductScreen.buttonText}>S</Text>
+                                                <View style={buttonActive == 'S' ? style.buttonActiveSize : style.buttonSize}>
+                                                        <Text style={style.buttonText}>S</Text>
                                                 </View>
                                             </TouchableOpacity>
                                             <TouchableOpacity
                                             onPress={() => setButtonActive('M')}
                                             >
-                                                <View style={buttonActive == 'M' ? stylesProductScreen.buttonActiveSize : stylesProductScreen.buttonSize}>
-                                                        <Text style={stylesProductScreen.buttonText}>M</Text>
+                                                <View style={buttonActive == 'M' ? style.buttonActiveSize : style.buttonSize}>
+                                                        <Text style={style.buttonText}>M</Text>
                                                 </View>
                                             </TouchableOpacity>
                                             <TouchableOpacity
                                             onPress={() => setButtonActive('L')}
                                             >
-                                                <View style={buttonActive == 'L' ? stylesProductScreen.buttonActiveSize : stylesProductScreen.buttonSize}>
-                                                        <Text style={stylesProductScreen.buttonText}>L</Text>
+                                                <View style={buttonActive == 'L' ? style.buttonActiveSize : style.buttonSize}>
+                                                        <Text style={style.buttonText}>L</Text>
                                                 </View>
                                             </TouchableOpacity>
                                             <TouchableOpacity
                                             onPress={() => setButtonActive('XL')}
                                             >
-                                                <View style={buttonActive == 'XL' ? stylesProductScreen.buttonActiveSize : stylesProductScreen.buttonSize}>
-                                                        <Text style={stylesProductScreen.buttonText}>XL</Text>
+                                                <View style={buttonActive == 'XL' ? style.buttonActiveSize : style.buttonSize}>
+                                                        <Text style={style.buttonText}>XL</Text>
                                                 </View>
                                             </TouchableOpacity>
                                         </View>
                                         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                                            <Text style={stylesProductScreen.infoProduct_TitleDecription}>Composition</Text>
-                                            <Text style={stylesProductScreen.infoProduct_TitleDecription}>Country</Text>
+                                            <Text style={style.infoProduct_TitleDecription}>Composition</Text>
+                                            <Text style={style.infoProduct_TitleDecription}>Country</Text>
                                         </View>
                                         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                                            <Text style={stylesProductScreen.infoProduct_ContentDecription}>{infoProduct.composition}</Text>
-                                            <Text style={stylesProductScreen.infoProduct_ContentDecription}>{infoProduct.country}</Text>
+                                            <Text style={style.infoProduct_ContentDecription}>{infoProduct.composition}</Text>
+                                            <Text style={style.infoProduct_ContentDecription}>{infoProduct.country}</Text>
                                         </View>
                                         <View>
-                                            <Text style={stylesProductScreen.infoProduct_TitleDecription}>Care</Text>
+                                            <Text style={style.infoProduct_TitleDecription}>Care</Text>
                                         </View>
                                         <View>
-                                            <Text style={stylesProductScreen.infoProduct_ContentDecription}>{infoProduct.decription}</Text>
+                                            <Text style={style.infoProduct_ContentDecription}>{infoProduct.decription}</Text>
                                         </View>
                                     </View>
                                     <TouchableOpacity
@@ -92,8 +88,8 @@ function ProductScreen({visible, infoProduct, setVisible}) {
                                             Alert.alert(`Notification`,`Add ${infoProduct.name} success`);
                                         }}
                                     >
-                                        <View style={stylesProductScreen.buttonAdd}>
-                                            <Text style={stylesProductScreen.buttonAddText}>Add To Cart</Text>
+                                        <View style={style.buttonAdd}>
+                                            <Text style={style.buttonAddText}>Add To Cart</Text>
                                         </View>
                                     </TouchableOpacity>
                                 </View>

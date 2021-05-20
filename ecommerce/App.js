@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Provider } from "react-redux";
-import HomePage from "./pages/HomePage";
+import HomePage from "./src/Home/index";
 import { createStore } from 'redux';
 import rootReducer from "./reducers";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import CartPage from "./pages/CartPage";
+import CartPage from "./src/Cart/index";
 
 const Stack = createStackNavigator();
 

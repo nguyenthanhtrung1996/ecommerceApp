@@ -1,14 +1,14 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import CartScreen from '../components/CartScreen';
+// import React from 'react';
+// import { useSelector } from 'react-redux';
+// import CartScreen from '../components/CartScreen';
 
 
 
-function CartPage({ navigation }) {
+// function CartPage({ navigation }) {
 
-    return (
-        <CartScreen navigation={navigation}/>
-    );
-}
+//     return (
+//         <CartScreen navigation={navigation}/>
+//     );
+// }
 
-export default CartPage;
+// export default CartPage;
